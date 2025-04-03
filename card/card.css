@@ -1,0 +1,212 @@
+:root{
+  --primary: #fff;
+  --bg-color: #080f1a;
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgb(182, 7, 7);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+
+}
+
+button:hover{
+  background-color: #f63c3c;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 50px; /* Turunkan sedikit */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  text-align: center;
+  z-index: 1000; /* Pastikan tidak menutupi elemen lain */
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 300px;
+  height: 300px; /* Ukuran baru */
+}
+
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-out 0.7s;
+}
+
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 170px solid var(--envelope-cover); /* Disesuaikan */
+  border-left: 150px solid var(--envelope-cover);
+}
+
+.envelope > .letter {
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  width: 80%;
+  height: 89%;
+  background: var(--primary);
+  text-align: center;
+  transition: transform 2.5s ease-in-out, bottom 1.5s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 10px 5px;
+}
+
+.envelope > .letter > .text {
+  font-family: "Times New Roman", Times, serif;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 13px;
+}
+
+.heart {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -550%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -7.5px;
+}
+
+.heart:after {
+  right: 7.5px;
+}
+
+.flap > .envelope::before {
+  transform: rotateX(200deg);
+  z-index: 0;
+}
+
+.flap > .envelope.after-flap::before {
+  transform: rotateX(200deg);
+}
+
+.flap > .envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 300px;
+  height: 300px;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 170px solid var(--envelope-cover);
+  border-left: 150px solid var(--envelope-cover);
+  transition: none;
+}
+
+.flap > .envelope > .letter {
+  bottom: 320px; /* Disesuaikan dengan ukuran baru */
+  transition-delay: 1s;
+}
+
+.flap > .envelope > .letter.after-flap {
+  transform: translate(0, 100%) scale(1.5);
+  transition-delay: 1s;
+}
+
+.flap > .envelope > .letter.rewind-flap {
+  transform: translate(0, 0) scale(1);
+  z-index: 1;
+  transition: all 1s ease-in-out;
+}
+
+.flap > .envelope-wrapper > .envelope.after-flap {
+  width: 300px;
+  height: 300px;
+  transition: none;
+}
+
+.flap > .heart {
+  transform: translate(-50%, -550%) rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+.text2 {
+  position: absolute;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  font-size: 25px;
+  width: 300px;
+  top: 550px;
+}
+
+@media screen and (max-width: 768px) {
+  .NEXT {
+      font-size: 16px;
+      padding: 8px 16px;
+      top: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+}

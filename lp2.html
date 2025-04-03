@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest</title>
+    <link rel="stylesheet" href="lp1/lp1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <p class="text1">When are we first talking?</p>
+
+        <form onsubmit="return validateInput()">
+            <input type="number" id="tanggal" min="1" max="31" placeholder="Tanggal" required>
+            <div class="form-options">
+                <button type="submit">It's Me!</button>
+            </div>
+        </form>
+
+        <p id="warning-text" class="hidden">Are you really Justin??????</p>
+    </div>
+    <script src="lp2/lp2.js"></script>
+</body>
+</html>

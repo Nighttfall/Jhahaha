@@ -1,0 +1,58 @@
+body {
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Elemen ditumpuk ke bawah */
+    justify-content: center;
+    align-items: center;
+    background: #080f1a;
+}
+
+.img {
+    animation: slideIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    position: relative;
+    opacity: 0;
+}
+
+.img img {
+    width: 500px;
+    height: auto;
+}
+
+/* Animasi masuk lebih smooth */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-550px); /* Mulai dari bawah */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* Ke posisi normal */
+        opacity: 1;
+    }
+}
+
+/* Animasi surat keluar */
+@keyframes popOut {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+.container {
+    text-align: center;
+    color: white;
+    width: 100%; /* Biar nggak sempit */
+    animation: slideIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.text {
+    font-family: "Times New Roman", Times, serif;
+    max-width: 80%; /* Biar teks nggak kepanjangan */
+    margin: 20px auto; /* Tengahin teks */
+    text-align: center;
+}

@@ -1,0 +1,125 @@
+body {
+    margin-top: 250px;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #080f1a;
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background: red;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 120px red;
+    animation: heart 0.6s linear infinite;
+    position: absolute;
+}
+
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before {    
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    top: -50%;
+    border-radius: 60px;
+    box-shadow: -10px 10px 120px red;
+}
+
+.heart::after {    
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    right: -50%;
+    border-radius: 60px;
+    box-shadow: -10px 10px 120px red;
+}
+
+.envelope {
+    position: absolute;
+    top: 99%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; 
+    width: 300px; /* Sesuaikan */
+    height: 350px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  .envelope > .letter {
+    position: absolute;
+    right: 10%;
+    width: 80%;
+    height: auto;
+    background: var(--primary); /* Sesuaikan warna utama */
+    text-align: center;
+    transition: transform 2.5s ease-in-out, bottom 1.5s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 10px 5px;
+    font-family: "Times New Roman", Times, serif;
+    color: var(--txt-color);
+    text-align: left; /* Agar teks rata kiri */
+  }
+
+  @keyframes slideIn {
+    0% {
+      top: 80%; /* Mulai di luar layar */
+      opacity: 0; /* Tidak terlihat */
+    }
+    100% {
+      top: 99%; /* Posisi akhir di tengah */
+      opacity: 1; /* Menjadi terlihat */
+    }
+  }
+  
+  /* Animasi surat keluar */
+  @keyframes popOut {
+    0% {
+      transform: scale(0); /* Mulai kecil */
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1); /* Kembali normal */
+      opacity: 1;
+    }
+  }
+
+  button {
+    margin-top: 800px;
+    margin-bottom: 100px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+
+  }
+  
+  button:hover{
+    background-color: #f63c3c;
+  }
+  
+  .button-container {
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    text-align: center;
+    z-index: 1000; /* Pastikan tidak menutupi elemen lain */
+  }
