@@ -9,6 +9,7 @@ Website ini dibuat sebagai bentuk ekspresi pribadi untuk menyampaikan pesan atau
 ## 🛠️ Teknologi
 - HTML
 - CSS
+- JavaScript
 
 ## 📌 Catatan
 Project ini saya kerjakan sendiri untuk keperluan personal sekaligus latihan dasar pembuatan halaman statis yang ekspresif.
